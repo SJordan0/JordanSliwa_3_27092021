@@ -1,0 +1,91 @@
+@font-face {
+  font-family: "robotoregular";
+  src: url("../css/Fonts/roboto_regular/Roboto-Regular-webfont.eot");
+  src: url("../css/Fonts/roboto_regular/Roboto-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("../css/Fonts/roboto_regular/Roboto-Regular-webfont.woff2") format("woff2"), url("../css/Fonts/roboto_regular/Roboto-Regular-webfont.woff") format("woff"), url("../css/Fonts/roboto_regular/Roboto-Regular-webfont.ttf") format("truetype"), url("../css/Fonts/roboto_regular/Roboto-Regular-webfont.svg#robotoregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "shrikhandregular";
+  src: url("../css/Fonts/shrikhand-regular/shrikhand-regular-webfont.woff2") format("woff2"), url("../css/Fonts/shrikhand-regular/shrikhand-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  margin: 0;
+}
+
+a, p {
+  text-decoration: none;
+  color: black;
+  font-family: "robotoregular", serif;
+}
+
+h1 {
+  font-family: "robotoregular", serif;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0 12px 0;
+}
+header img {
+  width: 164px;
+  height: 30px;
+}
+
+#Localisation {
+  display: flex;
+  justify-content: center;
+  background-color: #f0f0f0;
+  box-shadow: inset 0 2px 5px #cfcfcf;
+}
+#Localisation i {
+  padding-right: 15px;
+}
+
+#Explorer {
+  text-align: center;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+#Explorer h1 {
+  font-size: 1.7em;
+  font-weight: bold;
+}
+#Explorer p {
+  color: #4d4d4d;
+}
+#Explorer a {
+  color: #FFFFFF;
+  background: linear-gradient(0deg, #000000 0%, #9356DC 0%, #FF79DA 100%);
+}
+
+footer {
+  background-color: #353535;
+  padding: 25px;
+}
+
+#footer_content img {
+  filter: invert(1);
+  width: 98px;
+  height: 18px;
+  padding-bottom: 15px;
+}
+#footer_content a {
+  color: #FFFFFF;
+  line-height: 1.7;
+}
+#footer_content i {
+  font-size: 0.9em;
+  padding-right: 10px;
+  width: 11px;
+}
+
+.Candidat {
+  font-weight: 600;
+}
+
+/*# sourceMappingURL=style.css.map */
