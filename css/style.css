@@ -11,77 +11,138 @@
   font-weight: normal;
   font-style: normal;
 }
+.etape_title, .etape_number, .etape, .Explorer, .Localisation, header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 body {
   margin: 0;
 }
 
-a, p {
+* {
+  box-sizing: border-box;
+}
+
+a, p, h1 {
   text-decoration: none;
   color: black;
   font-family: "robotoregular", serif;
-}
-
-h1 {
-  font-family: "robotoregular", serif;
+  margin: 0;
 }
 
 header {
+  position: relative;
   width: 100%;
-  display: flex;
-  justify-content: center;
   padding: 20px 0 12px 0;
+  box-shadow: 0 2px 5px #bfbfbf;
 }
 header img {
   width: 164px;
   height: 30px;
 }
 
-#Localisation {
-  display: flex;
-  justify-content: center;
-  background-color: #f0f0f0;
-  box-shadow: inset 0 2px 5px #cfcfcf;
+.Localisation {
+  background-color: #eaeaea;
+  padding: 15px;
 }
-#Localisation i {
+.Localisation i {
   padding-right: 15px;
 }
 
-#Explorer {
-  text-align: center;
+.Explorer {
+  flex-direction: column;
   padding-left: 40px;
   padding-right: 40px;
+  text-align: center;
+  background-color: #f6f6f6;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
-#Explorer h1 {
-  font-size: 1.7em;
+.Explorer_title {
+  font-size: 0.8em;
   font-weight: bold;
+  padding: 18px;
 }
-#Explorer p {
+.Explorer_text p {
   color: #4d4d4d;
+  padding-bottom: 20px;
 }
-#Explorer a {
-  color: #FFFFFF;
+.Explorer_btn {
   background: linear-gradient(0deg, #000000 0%, #9356DC 0%, #FF79DA 100%);
+  color: #FFFFFF;
+  padding: 15px;
+  border-radius: 25px;
+}
+
+.Fonctionnement {
+  margin-bottom: 20px;
+}
+.Fonctionnement_title h1 {
+  font-size: 1.4em;
+  padding-bottom: 20px;
+}
+
+.etapes {
+  display: flex;
+  flex-direction: column;
+}
+
+.etape_number {
+  position: relative;
+  background-color: #9356DC;
+  border-radius: 100%;
+  width: 24px;
+  height: 24px;
+  font-size: 0.9em;
+}
+.etape_number p {
+  color: #FFFFFF;
+}
+.etape_title {
+  background-color: #f6f6f6;
+  width: 100%;
+  height: 75px;
+  border-radius: 15px;
+  margin: 5px 0 5px -12px;
+  font-weight: 900;
+}
+.etape_title i {
+  font-size: 1.1em;
+  padding-right: 40px;
+  color: #7e7e7e;
+}
+.etape_title:hover {
+  background-color: #f2eafb;
+}
+.etape_title:hover i {
+  color: #9356DC;
 }
 
 footer {
   background-color: #353535;
-  padding: 25px;
+  padding: 15px 0 15px 0;
 }
 
-#footer_content img {
+.footer_content img {
   filter: invert(1);
   width: 98px;
-  height: 18px;
   padding-bottom: 15px;
 }
-#footer_content a {
+.footer_content a {
   color: #FFFFFF;
   line-height: 1.7;
 }
-#footer_content i {
+.footer_content i {
   font-size: 0.9em;
   padding-right: 10px;
-  width: 11px;
 }
 
 .Candidat {
