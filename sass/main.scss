@@ -52,21 +52,32 @@ body{
     box-sizing: border-box;
 }
 
-a, p, h1, h2{
+a, p, h1, h2, h3{
     text-decoration: none;
     color: black;
     font-family: $fontroboto;
     margin: 0;
 }
 
-header{
-    @extend %flex-center;
-    position: relative;
+header{ 
     width: 100%;
     padding: 20px 0 12px 0;
     box-shadow: 0 2px 5px lighten($black, 75);
-     img{
+    img{
         width: 164px;
+    }
+}
+
+.header_index{
+    @extend %flex-center;
+}
+
+.header_content{
+    display: flex;
+    align-items: center;
+    &_icon{
+        padding-right: 66px;
+        font-size: 1.4em;
     }
 }
 
@@ -181,6 +192,21 @@ header{
 }
 
 .affiche{
+    &_new{
+        display: flex;
+        justify-content: flex-end;
+    }
+    &_new p{
+        position: absolute;
+        background-color: $color-tertiary;
+        color: darken($color-tertiary, 40);
+        font-weight: bold;
+        padding: 5px 15px;
+        margin-top: 15px;
+        margin-right: 15px;
+        border-radius: 3px;
+        font-size: 0.9em;
+    }
     &_content{
         display: flex;
         flex-direction: column;
@@ -208,6 +234,7 @@ header{
                 font-weight: bold;
                 display: block;
                 background: -webkit-linear-gradient(270deg, $black 0%, $color-primary 0%, $color-secondary 100%);
+                background-clip: text;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
             }
@@ -222,6 +249,7 @@ footer{
 }
 
 .footer_content{
+    padding-top: 10px;
     img{
         filter: invert(1);
         width: 98px;
@@ -238,4 +266,94 @@ footer{
 }     
 .Candidat{
     font-weight: 600;
+}
+
+//Css page restaurant
+.image_restaurant{
+    display: flex;
+    img{
+        object-fit: cover;
+        width: 100%;
+        height: 260px;
+    }
+}
+
+.menu{
+    position: relative;
+    width: 100%;
+    @include bg-light($black,96.5);
+    border-radius: 30px 30px 0 0;
+    margin-top: -50px;
+    padding-bottom: 75px;
+    padding-top: 30px;
+    a{
+        display: block;
+    }
+    h1{
+        font-family: $fontshrikhand;
+        font-size: 1.8em;
+        font-weight: 500;
+    }
+    h2{
+        font-size: 1.1em;
+        font-weight: normal;
+        color: lighten($black, 30);
+        border-bottom: 3px solid $color-tertiary;
+        width: 13%;
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
+    &_title{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &_icon{
+            @extend %flex-center;
+            font-size: 1.5em;
+            &:hover i{
+                font-weight: bold;
+                display: block;
+                background: -webkit-linear-gradient(270deg, $black 0%, $color-primary 0%, $color-secondary 100%);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+    }
+}
+
+.plat{
+    background-color: $white;
+    width: 100%;
+    border-radius: 20px;
+    padding: 10px 20px 10px 10px;
+    box-shadow: 0 3px 5px lighten($black, 85);
+    margin-bottom: 10px;
+    &_title{
+        font-weight: 700;
+    }
+    &_content{
+        padding-top: 5px;
+        display: flex;
+        justify-content: space-between;
+    }
+    &_text{
+        font-size: 0.9em;
+    }
+    &_prix{
+        font-weight: bold;
+        font-size: 0.9em;
+    }
+}
+
+.commander{
+    @extend %flex-center;
+    &_btn{
+        background:linear-gradient(0deg, $black 0%, $color-primary 0%, $color-secondary 100%);
+        color: $white;
+        padding: 15px 45px;
+        margin-top: 35px;
+        border-radius: 25px;
+        box-shadow: 0 5px 8px lighten($black, 75);
+    }
 }

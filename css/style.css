@@ -11,7 +11,7 @@
   font-weight: normal;
   font-style: normal;
 }
-.affiche_text_icon, .restaurant_liste, .etape_title, .etape_number, .etape, .Explorer, .Localisation, header {
+.commander, .menu_title_icon, .affiche_text_icon, .restaurant_liste, .etape_title, .etape_number, .etape, .Explorer, .Localisation, .header_index {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,7 +31,7 @@ body {
   box-sizing: border-box;
 }
 
-a, p, h1, h2 {
+a, p, h1, h2, h3 {
   text-decoration: none;
   color: black;
   font-family: "robotoregular", serif;
@@ -39,13 +39,21 @@ a, p, h1, h2 {
 }
 
 header {
-  position: relative;
   width: 100%;
   padding: 20px 0 12px 0;
   box-shadow: 0 2px 5px #bfbfbf;
 }
 header img {
   width: 164px;
+}
+
+.header_content {
+  display: flex;
+  align-items: center;
+}
+.header_content_icon {
+  padding-right: 66px;
+  font-size: 1.4em;
 }
 
 .Localisation {
@@ -150,6 +158,21 @@ header img {
   display: block;
 }
 
+.affiche_new {
+  display: flex;
+  justify-content: flex-end;
+}
+.affiche_new p {
+  position: absolute;
+  background-color: #99E2D0;
+  color: #278870;
+  font-weight: bold;
+  padding: 5px 15px;
+  margin-top: 15px;
+  margin-right: 15px;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
 .affiche_content {
   display: flex;
   flex-direction: column;
@@ -178,6 +201,7 @@ header img {
   font-weight: bold;
   display: block;
   background: -webkit-linear-gradient(270deg, #000000 0%, #9356DC 0%, #FF79DA 100%);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -187,6 +211,9 @@ footer {
   padding: 15px 0 15px 0;
 }
 
+.footer_content {
+  padding-top: 10px;
+}
 .footer_content img {
   filter: invert(1);
   width: 98px;
@@ -203,6 +230,91 @@ footer {
 
 .Candidat {
   font-weight: 600;
+}
+
+.image_restaurant {
+  display: flex;
+}
+.image_restaurant img {
+  object-fit: cover;
+  width: 100%;
+  height: 260px;
+}
+
+.menu {
+  position: relative;
+  width: 100%;
+  background-color: #f6f6f6;
+  border-radius: 30px 30px 0 0;
+  margin-top: -50px;
+  padding-bottom: 75px;
+  padding-top: 30px;
+}
+.menu a {
+  display: block;
+}
+.menu h1 {
+  font-family: "shrikhandregular", serif;
+  font-size: 1.8em;
+  font-weight: 500;
+}
+.menu h2 {
+  font-size: 1.1em;
+  font-weight: normal;
+  color: #4d4d4d;
+  border-bottom: 3px solid #99E2D0;
+  width: 13%;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+.menu_title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.menu_title_icon {
+  font-size: 1.5em;
+}
+.menu_title_icon:hover i {
+  font-weight: bold;
+  display: block;
+  background: -webkit-linear-gradient(270deg, #000000 0%, #9356DC 0%, #FF79DA 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.plat {
+  background-color: #FFFFFF;
+  width: 100%;
+  border-radius: 20px;
+  padding: 10px 20px 10px 10px;
+  box-shadow: 0 3px 5px #d9d9d9;
+  margin-bottom: 10px;
+}
+.plat_title {
+  font-weight: 700;
+}
+.plat_content {
+  padding-top: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+.plat_text {
+  font-size: 0.9em;
+}
+.plat_prix {
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.commander_btn {
+  background: linear-gradient(0deg, #000000 0%, #9356DC 0%, #FF79DA 100%);
+  color: #FFFFFF;
+  padding: 15px 45px;
+  margin-top: 35px;
+  border-radius: 25px;
+  box-shadow: 0 5px 8px #bfbfbf;
 }
 
 /*# sourceMappingURL=style.css.map */
