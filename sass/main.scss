@@ -32,6 +32,69 @@ $white : #FFFFFF;
     background-color: lighten($color, $value); 
 }
 
+@keyframes apparitionObjet{
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes full-heart{
+    0% {
+        opacity: (0);
+    }
+
+    100% {
+        opacity: (1);
+    }
+}
+
+.delay{
+    &-0{
+        animation-delay: 0s;
+    }
+
+    &-1{
+        animation-delay: 200ms;
+    }
+
+    &-2{
+        animation-delay: 400ms;
+    }
+
+    &-3{
+        animation-delay: 600ms;
+    }
+
+    &-4{
+        animation-delay: 800ms;
+    }
+
+    &-5{
+        animation-delay: 1000ms;
+    }
+
+    &-6{
+        animation-delay: 1200ms;
+    }
+
+    &-7{
+        animation-delay: 1400ms;
+    }
+
+    &-8{
+        animation-delay: 1600ms;
+    }
+    
+    &-9{
+        animation-delay: 1800ms;
+    }
+}
+
 %flex-center {
     display: flex;
     justify-content: center;
@@ -76,8 +139,12 @@ header{
     display: flex;
     align-items: center;
     &_icon{
-        padding-right: 66px;
         font-size: 1.4em;
+    }
+    &_img{
+        display: flex;
+        flex: 1;
+        justify-content: center;
     }
 }
 
@@ -144,7 +211,8 @@ header{
         }
     }
     &_title{
-        @extend %flex-center;
+        display: flex;
+        align-items: center;
         @include bg-light($black,96.5);
         width: 100%;
         height: 72px;
@@ -152,10 +220,10 @@ header{
         margin: 10px 0 10px -12px;
         font-weight: 900;
         box-shadow: 0 5px 8px lighten($black, 85);
-        i {
-            font-size: 1.1em;
-            padding-right: 40px;
+        span {
+            font-size: 1.2em;
             color:lighten($black, 49.5%);
+            padding: 0 35px;
         }
         &:hover{
         @include bg-light($color-primary, 35%);
@@ -187,6 +255,7 @@ header{
         box-shadow: 0 2px 10px lighten($black, 80);
         a{
             display: block;
+            width: 100%;
         }
     }
 }
@@ -229,14 +298,14 @@ header{
         }
         &_icon{
             @extend %flex-center;
-            font-size: 1.5em;
+            font-size: 1.5em;     
             &:hover i{
                 font-weight: bold;
-                display: block;
                 background: -webkit-linear-gradient(270deg, $black 0%, $color-primary 0%, $color-secondary 100%);
                 background-clip: text;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
+                animation: full-heart 1000ms forwards ease-in-out;
             }
         }
     }
@@ -286,9 +355,6 @@ footer{
     margin-top: -50px;
     padding-bottom: 75px;
     padding-top: 30px;
-    a{
-        display: block;
-    }
     h1{
         font-family: $fontshrikhand;
         font-size: 1.8em;
@@ -298,11 +364,19 @@ footer{
         font-size: 1.1em;
         font-weight: normal;
         color: lighten($black, 30);
-        border-bottom: 3px solid $color-tertiary;
-        width: 13%;
+        position: relative;
         margin-top: 25px;
         margin-bottom: 15px;
     }
+    h2::before{
+        position: absolute;
+        bottom: -5px;
+        content: "";
+        height: 3px;
+        width: 45px;
+        background-color: $color-tertiary;
+    }
+
     &_title{
         display: flex;
         align-items: center;
@@ -320,29 +394,67 @@ footer{
             }
         }
     }
+    &_anim{
+        margin-bottom: 50px;
+    }
 }
 
 .plat{
+    display: flex;
+    justify-content: space-between;
     background-color: $white;
-    width: 100%;
     border-radius: 20px;
-    padding: 10px 20px 10px 10px;
     box-shadow: 0 3px 5px lighten($black, 85);
-    margin-bottom: 10px;
-    &_title{
-        font-weight: 700;
-    }
+    margin-bottom: 20px;
+    overflow: hidden;
+    animation-name: apparitionObjet;
+    animation-duration: 1s;
+    transform: scale(0);
+    animation-fill-mode: both;
     &_content{
-        padding-top: 5px;
-        display: flex;
-        justify-content: space-between;
+        padding: 10px;
+        width: 95%;
+    }
+    &_title{
+        font-weight: bold;
+        font-size: 0.9em;
+        margin-bottom: 5px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
     &_text{
+        display: flex;
+        justify-content: space-between;
         font-size: 0.9em;
+    }
+    &_description{
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
     &_prix{
         font-weight: bold;
-        font-size: 0.9em;
+    }
+    &_choix{
+        @extend %flex-center;
+        width: 25%;
+        border-radius: 0 20px 20px 0;
+        color: $white;
+        font-size: 1.5em;
+        background-color: $color-tertiary;
+        margin: 0 -10em;
+        transition-duration: 0.5s;
+        animation-fill-mode: forwards;
+    }
+    &_choixIcon{
+        transition-duration: 0.7s;
+    }
+    &:hover .plat_choix{
+        margin: 0;
+    }
+    &:hover .plat_choixIcon{
+        transform: rotate(2turn);
     }
 }
 

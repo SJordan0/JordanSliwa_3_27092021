@@ -11,7 +11,56 @@
   font-weight: normal;
   font-style: normal;
 }
-.commander, .menu_title_icon, .affiche_text_icon, .restaurant_liste, .etape_title, .etape_number, .etape, .Explorer, .Localisation, .header_index {
+@keyframes apparitionObjet {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes full-heart {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.delay-0 {
+  animation-delay: 0s;
+}
+.delay-1 {
+  animation-delay: 200ms;
+}
+.delay-2 {
+  animation-delay: 400ms;
+}
+.delay-3 {
+  animation-delay: 600ms;
+}
+.delay-4 {
+  animation-delay: 800ms;
+}
+.delay-5 {
+  animation-delay: 1000ms;
+}
+.delay-6 {
+  animation-delay: 1200ms;
+}
+.delay-7 {
+  animation-delay: 1400ms;
+}
+.delay-8 {
+  animation-delay: 1600ms;
+}
+.delay-9 {
+  animation-delay: 1800ms;
+}
+
+.commander, .plat_choix, .menu_title_icon, .affiche_text_icon, .restaurant_liste, .etape_number, .etape, .Explorer, .Localisation, .header_index {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,8 +101,12 @@ header img {
   align-items: center;
 }
 .header_content_icon {
-  padding-right: 66px;
   font-size: 1.4em;
+}
+.header_content_img {
+  display: flex;
+  flex: 1;
+  justify-content: center;
 }
 
 .Localisation {
@@ -115,6 +168,8 @@ header img {
   color: #FFFFFF;
 }
 .etape_title {
+  display: flex;
+  align-items: center;
   background-color: #f6f6f6;
   width: 100%;
   height: 72px;
@@ -123,10 +178,10 @@ header img {
   font-weight: 900;
   box-shadow: 0 5px 8px #d9d9d9;
 }
-.etape_title i {
-  font-size: 1.1em;
-  padding-right: 40px;
+.etape_title span {
+  font-size: 1.2em;
   color: #7e7e7e;
+  padding: 0 35px;
 }
 .etape_title:hover {
   background-color: #f2eafb;
@@ -156,6 +211,7 @@ header img {
 }
 .restaurant_affiche a {
   display: block;
+  width: 100%;
 }
 
 .affiche_new {
@@ -199,11 +255,11 @@ header img {
 }
 .affiche_text_icon:hover i {
   font-weight: bold;
-  display: block;
   background: -webkit-linear-gradient(270deg, #000000 0%, #9356DC 0%, #FF79DA 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: full-heart 1000ms forwards ease-in-out;
 }
 
 footer {
@@ -250,9 +306,6 @@ footer {
   padding-bottom: 75px;
   padding-top: 30px;
 }
-.menu a {
-  display: block;
-}
 .menu h1 {
   font-family: "shrikhandregular", serif;
   font-size: 1.8em;
@@ -262,10 +315,17 @@ footer {
   font-size: 1.1em;
   font-weight: normal;
   color: #4d4d4d;
-  border-bottom: 3px solid #99E2D0;
-  width: 13%;
+  position: relative;
   margin-top: 25px;
   margin-bottom: 15px;
+}
+.menu h2::before {
+  position: absolute;
+  bottom: -5px;
+  content: "";
+  height: 3px;
+  width: 45px;
+  background-color: #99E2D0;
 }
 .menu_title {
   display: flex;
@@ -283,29 +343,66 @@ footer {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.menu_anim {
+  margin-bottom: 50px;
+}
 
 .plat {
-  background-color: #FFFFFF;
-  width: 100%;
-  border-radius: 20px;
-  padding: 10px 20px 10px 10px;
-  box-shadow: 0 3px 5px #d9d9d9;
-  margin-bottom: 10px;
-}
-.plat_title {
-  font-weight: 700;
-}
-.plat_content {
-  padding-top: 5px;
   display: flex;
   justify-content: space-between;
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  box-shadow: 0 3px 5px #d9d9d9;
+  margin-bottom: 20px;
+  overflow: hidden;
+  animation-name: apparitionObjet;
+  animation-duration: 1s;
+  transform: scale(0);
+  animation-fill-mode: both;
+}
+.plat_content {
+  padding: 10px;
+  width: 95%;
+}
+.plat_title {
+  font-weight: bold;
+  font-size: 0.9em;
+  margin-bottom: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .plat_text {
+  display: flex;
+  justify-content: space-between;
   font-size: 0.9em;
+}
+.plat_description {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .plat_prix {
   font-weight: bold;
-  font-size: 0.9em;
+}
+.plat_choix {
+  width: 25%;
+  border-radius: 0 20px 20px 0;
+  color: #FFFFFF;
+  font-size: 1.5em;
+  background-color: #99E2D0;
+  margin: 0 -10em;
+  transition-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+.plat_choixIcon {
+  transition-duration: 0.7s;
+}
+.plat:hover .plat_choix {
+  margin: 0;
+}
+.plat:hover .plat_choixIcon {
+  transform: rotate(2turn);
 }
 
 .commander_btn {
