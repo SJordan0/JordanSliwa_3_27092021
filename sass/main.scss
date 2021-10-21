@@ -46,52 +46,69 @@ $white : #FFFFFF;
 @keyframes full-heart{
     0% {
         opacity: (0);
+        transform: scale(0);
     }
 
     100% {
         opacity: (1);
+        transform: scale(1);
+    }
+}
+
+@keyframes DisparitionChargement{
+    99% {
+        transform: translate(0);
+    }
+    100% {
+        transform: translate(1000000px);
+    }
+}
+
+@keyframes bars {
+    0% {
+        transform: scaleY(0.5);
+        
+    }
+    100% {
+        transform: scaleY(1.0);
     }
 }
 
 .delay{
-    &-0{
-        animation-delay: 0s;
+    @for $i from 1 through 9 {
+        &-#{$i} {
+            animation-delay: 200ms * $i;
+        }
     }
+}
 
-    &-1{
-        animation-delay: 200ms;
-    }
+.loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: white;
+    animation: DisparitionChargement 3s both;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
 
-    &-2{
-        animation-delay: 400ms;
-    }
-
-    &-3{
-        animation-delay: 600ms;
-    }
-
-    &-4{
-        animation-delay: 800ms;
-    }
-
-    &-5{
-        animation-delay: 1000ms;
-    }
-
-    &-6{
-        animation-delay: 1200ms;
-    }
-
-    &-7{
-        animation-delay: 1400ms;
-    }
-
-    &-8{
-        animation-delay: 1600ms;
-    }
-    
-    &-9{
-        animation-delay: 1800ms;
+.load {
+    width: 10em;
+    height: 10em;
+    display: flex;
+    justify-content: space-evenly;
+    &_bar {
+        height: 100%;
+        width: 1em;
+        background:linear-gradient(180deg, $black 0%, $color-primary 0%, $color-secondary 100%); ;
+        animation: bars 1s backwards infinite ease-in-out alternate;
+        @for $i from 1 through 5 {
+            &-#{$i} {
+                animation-delay: 200ms * $i;
+            }
+        }
     }
 }
 
@@ -185,7 +202,7 @@ header{
 }
 
 .Fonctionnement{
-    margin: 25px 0;
+    margin: 30px 0;
     &_title h1{
     font-size: 1.3em;
     padding-bottom: 20px;
@@ -239,12 +256,12 @@ header{
     margin: 0 -20px;
     &_title h1{
         font-size: 1.3em;
-        padding: 20px;
+        padding: 30px 20px 0 20px;
     }
     &_liste{
     @extend %flex-center;
     flex-direction: column;
-    padding: 0 20px;
+    padding: 10px 20px 30px 20px;
     }
 
     &_affiche{
@@ -298,14 +315,14 @@ header{
         }
         &_icon{
             @extend %flex-center;
-            font-size: 1.5em;     
+            font-size: 1.5em; 
             &:hover i{
                 font-weight: bold;
                 background: -webkit-linear-gradient(270deg, $black 0%, $color-primary 0%, $color-secondary 100%);
                 background-clip: text;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
-                animation: full-heart 1000ms forwards ease-in-out;
+                animation: full-heart 350ms ease-in-out;
             }
         }
     }
@@ -353,7 +370,7 @@ footer{
     @include bg-light($black,96.5);
     border-radius: 30px 30px 0 0;
     margin-top: -50px;
-    padding-bottom: 75px;
+    padding-bottom: 60px;
     padding-top: 30px;
     h1{
         font-family: $fontshrikhand;
@@ -386,16 +403,16 @@ footer{
             font-size: 1.5em;
             &:hover i{
                 font-weight: bold;
-                display: block;
                 background: -webkit-linear-gradient(270deg, $black 0%, $color-primary 0%, $color-secondary 100%);
                 background-clip: text;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
+                animation: full-heart 350ms ease-in-out;
             }
         }
     }
     &_anim{
-        margin-bottom: 50px;
+        margin-bottom: 35px;
     }
 }
 
@@ -414,14 +431,19 @@ footer{
     &_content{
         padding: 10px;
         width: 95%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
     &_title{
         font-weight: bold;
         font-size: 0.9em;
         margin-bottom: 5px;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+        h3{
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
     }
     &_text{
         display: flex;
@@ -432,6 +454,12 @@ footer{
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+        width: 85%;
+        p{
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
     }
     &_prix{
         font-weight: bold;
@@ -464,7 +492,7 @@ footer{
         background:linear-gradient(0deg, $black 0%, $color-primary 0%, $color-secondary 100%);
         color: $white;
         padding: 15px 45px;
-        margin-top: 35px;
+        margin-top: 10px;
         border-radius: 25px;
         box-shadow: 0 5px 8px lighten($black, 75);
     }
