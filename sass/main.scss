@@ -102,7 +102,7 @@ $white : #FFFFFF;
     &_bar {
         height: 100%;
         width: 1em;
-        background:linear-gradient(180deg, $black 0%, $color-primary 0%, $color-secondary 100%); ;
+        background:linear-gradient(180deg, $color-primary 0%, $color-secondary 100%); ;
         animation: bars 1s backwards infinite ease-in-out alternate;
         @for $i from 1 through 5 {
             &-#{$i} {
@@ -192,12 +192,17 @@ header{
         padding: 15px 0;
     }
     &_btn{
-        background:linear-gradient(0deg, $black 0%, $color-primary 0%, $color-secondary 100%);
+        background:linear-gradient(0deg, $color-primary 0%, $color-secondary 100%);
         color: $white;
         padding: 15px 25px;
         margin: 15px 0;
         border-radius: 25px;
         box-shadow: 0 5px 8px lighten($black, 75);
+        transition: all 300ms;
+        &:hover{
+            filter: brightness(120%);
+            box-shadow: 0 5px 8px lighten($black, 35);
+        }
     }
 }
 
@@ -318,7 +323,7 @@ header{
             font-size: 1.5em; 
             &:hover i{
                 font-weight: bold;
-                background: -webkit-linear-gradient(270deg, $black 0%, $color-primary 0%, $color-secondary 100%);
+                background: -webkit-linear-gradient(270deg, $color-primary 0%, $color-secondary 100%);
                 background-clip: text;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
@@ -403,7 +408,7 @@ footer{
             font-size: 1.5em;
             &:hover i{
                 font-weight: bold;
-                background: -webkit-linear-gradient(270deg, $black 0%, $color-primary 0%, $color-secondary 100%);
+                background: -webkit-linear-gradient(270deg, $color-primary 0%, $color-secondary 100%);
                 background-clip: text;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
@@ -430,7 +435,7 @@ footer{
     animation-fill-mode: both;
     &_content{
         padding: 10px;
-        width: 95%;
+        width: 98%;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -471,7 +476,7 @@ footer{
         color: $white;
         font-size: 1.5em;
         background-color: $color-tertiary;
-        margin: 0 -10em;
+        margin: 0 -30em;
         transition-duration: 0.5s;
         animation-fill-mode: forwards;
     }
@@ -489,11 +494,53 @@ footer{
 .commander{
     @extend %flex-center;
     &_btn{
-        background:linear-gradient(0deg, $black 0%, $color-primary 0%, $color-secondary 100%);
+        background:linear-gradient(0deg, $color-primary 0%, $color-secondary 100%);
         color: $white;
         padding: 15px 45px;
         margin-top: 10px;
         border-radius: 25px;
         box-shadow: 0 5px 8px lighten($black, 75);
+        transition: all 300ms;
+        &:hover{
+            filter: brightness(120%);
+            box-shadow: 0 5px 8px lighten($black, 35);
+        }
+    }
+}
+
+@media screen and (min-width: 991px){
+    
+    .etapes{
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .etape{
+        width: 31%;
+        margin: 2%;
+    }
+
+    .restaurant_liste{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    
+    .restaurant_affiche{
+        width: 48%;
+        margin-bottom: 50px;
+    }
+
+    .image_restaurant img{
+        height: 500px;
+    }
+
+    .menu_responsive{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .menu_entrees, .menu_plats, .menu_desserts{
+        width: 30%;
     }
 }
