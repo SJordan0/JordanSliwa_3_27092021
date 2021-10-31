@@ -1,0 +1,24 @@
+footer{
+    background-color: #353535;
+    padding: 15px 0 15px 0;
+}
+
+.footer_content{
+    padding-top: 10px;
+    img{
+        filter: invert(1);
+        width: 98px;
+        padding-bottom: 15px;
+    }
+    a{
+        color: $white;
+        line-height: 1.7;
+    }
+    i{
+        font-size: 0.9em;
+        padding-right: 10px;
+    }
+}     
+.Candidat{
+    font-weight: 600;
+}

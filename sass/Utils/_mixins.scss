@@ -1,0 +1,3 @@
+@mixin bg-light($color, $value) {
+    background-color: lighten($color, $value); 
+}

@@ -1,0 +1,41 @@
+@keyframes apparitionObjet{
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes full-heart{
+    0% {
+        opacity: (0);
+        transform: scale(0);
+    }
+
+    100% {
+        opacity: (1);
+        transform: scale(1);
+    }
+}
+
+@keyframes DisparitionChargement{
+    99% {
+        transform: translate(0);
+    }
+    100% {
+        transform: translate(1000000px);
+    }
+}
+
+@keyframes bars {
+    0% {
+        transform: scaleY(0.5);
+        
+    }
+    100% {
+        transform: scaleY(1.0);
+    }
+}

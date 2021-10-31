@@ -1,0 +1,25 @@
+header{ 
+    width: 100%;
+    padding: 20px 0 12px 0;
+    box-shadow: 0 2px 5px lighten($black, 75);
+    img{
+        width: 164px;
+    }
+}
+
+.header_index{
+    @extend %flex-center;
+}
+
+.header_content{
+    display: flex;
+    align-items: center;
+    &_icon{
+        font-size: 1.4em;
+    }
+    &_img{
+        display: flex;
+        flex: 1;
+        justify-content: center;
+    }
+}
